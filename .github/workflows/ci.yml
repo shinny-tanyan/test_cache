@@ -27,7 +27,10 @@ jobs:
     
     - name: install autoconf-archive
       if: matrix.os == 'ubuntu-20.04'
-      run: sudo apt-get install autoconf-archive -y
+      uses: awalsh128/cache-apt-pkgs-action@latest
+      with:
+        packages: autoconf-archive
+        version: 1.0
 
     - name: Build
       uses: lukka/run-cmake@v3
