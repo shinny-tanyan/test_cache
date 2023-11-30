@@ -29,7 +29,7 @@ jobs:
       if: matrix.os == 'ubuntu-20.04'
       uses: awalsh128/cache-apt-pkgs-action@latest
       with:
-        packages: autoconf-archive
+        packages: autoconf-archive elfutils
         version: 1.0
 
     - name: Build
