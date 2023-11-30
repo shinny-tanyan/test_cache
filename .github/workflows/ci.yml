@@ -24,6 +24,10 @@ jobs:
       uses: hendrikmuhs/ccache-action@v1.2.9
       with:
         key: ${{ matrix.os }}-${{ matrix.build-type }}
+    
+    - name: install autoconf-archive
+      if: matrix.os == 'ubuntu-20.04'
+      run: sudo apt-get install autoconf-archive -y
 
     - name: Build
       uses: lukka/run-cmake@v3
