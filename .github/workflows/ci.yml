@@ -13,8 +13,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        build-type: [Debug, Release]
-        os: [ubuntu-20.04, windows-latest]
+        build-type: [Debug]
+        os: [windows-latest]
 
     steps:
     - name: Checkout
@@ -40,3 +40,6 @@ jobs:
         buildDirectory: '${{ github.workspace }}/build'
         cmakeBuildType: '${{ matrix.build-type }}'
         cmakeAppendedArgs: '-D CMAKE_C_COMPILER_LAUNCHER=ccache -D CMAKE_CXX_COMPILER_LAUNCHER=ccache'
+    
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
